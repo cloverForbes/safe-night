@@ -1,0 +1,119 @@
+So I am working on an app with Mongoose and Node. Whenever I try to use postman to get `/api/users` or post `/api/users/name/name/email/test` it just hangs. I have confirmed it is connecting to the database, the `app.listen()` is inside of `db.once('open')`
+
+Here is my model.js
+
+<!-- begin snippet: js hide: false console: true babel: false -->
+
+<!-- language: lang-js -->
+
+    'use strict'
+
+    var mongoose = require('mongoose');
+    var Schema   = mongoose.Schema;
+
+    const userSchema = new Schema({
+      first_name : String,
+      last_name  : String,
+      email      : {
+                 type   : String,
+                 unique : true
+      },
+      password   : String,
+      age        : String,
+      address    : String,
+      phoneNumber: String,
+      gender     : String,
+      preffered  : String,
+      alerts     : Array
+    });
+
+
+    module.exports = mongoose.model('User', userSchema)
+
+
+<!-- end snippet -->
+
+Here is my controller.js
+
+<!-- begin snippet: js hide: false console: true babel: false -->
+
+<!-- language: lang-js -->
+
+    const User = require('../models/user');
+
+    module.exports = {
+
+      getAllUsers: (req, res) => {
+        User.find({}, (err, user) => {
+          if(err) {res.send(err)}
+          console.log('blah');
+          res.json(user);
+        });
+      },
+
+      createUser: (req, res) => {
+        var newUser = new User();
+        newUser.first_name = req.params.fn;
+        newUser.last_name  = req.params.ln;
+        newUser.email      = req.params.em;
+        newUser.password   = req.params.pw;
+        newUser.save((err, user) => {
+          if(err){res.send(err)}
+          console.log(newUser.first_name + ' Created');
+          res.json(user);
+          mongoose.connection.close();
+        });
+      },
+
+      readUser: (req, res) => {
+        User.findOne({_id: req.params.id}, (err, user) => {
+          if(err){res.send(err)}
+          res.json(user)
+        });
+      },
+
+      updateUser: (req, res) => {
+        User.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, (err, user) => {
+          if(err){res.send(err)}
+          res.json(user);
+        });
+      },
+
+      removeUser: (req, res) => {
+        User.remove({_id: req.params.id}, (err, user) => {
+          if(err){res.send(err)}
+          res.json("User was succesfully deleted");
+        });
+      }
+    }
+
+
+<!-- end snippet -->
+
+Here is my routes.js
+
+<!-- begin snippet: js hide: false console: true babel: false -->
+
+<!-- language: lang-js -->
+
+    const express = require('express'),
+          router  = express.Router(),
+          apiController     = require('./controllers/api.controller'    ),
+          mainController    = require('./controllers/main.controller'   ),
+          profileController = require('./controllers/profile.controller'),
+          adminController   = require('./controllers/admin.controller'  );
+
+    module.exports = router;
+
+    //Handled by apiController
+    router.get('/api/users', apiController.getAllUsers);
+    router.post('/api/:fn/:ln/:em/:pw/', apiController.createUser);
+
+    router.route('/api/:id')
+          .get(apiController.readUser)
+          .put(apiController.updateUser)
+          .delete(apiController.removeUser);
+
+
+
+<!-- end snippet -->

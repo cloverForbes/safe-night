@@ -1,0 +1,270 @@
+
+* TODO Back End
+** TODO API [66%]
+   - [X] Create User
+   - [X] Read User by ID
+   - [X] Upddate User
+   - [X] Delete User
+   - [ ] API Authentication
+** TODO Databse [66%]
+   - [X] Set up DB with Mlab
+   - [X] Set up admin for DB
+   - [ ] Switch to a paid account
+** TODO Model [100%]
+   - [X] Add Name
+   - [X] Add Address
+   - [X] Add Preffered
+   - [X] Add Gender
+   - [X] Add Email
+   - [X] Add Password
+   - [X] Add Boolean Is Homeless to user.js
+** TODO Server [14%]
+   - [X] connect to DB
+   - [ ] Encrypt Password
+   - [ ] recieve Homeless event {_id}
+   - [ ] sends notification to all providers in that city
+   - [ ] recieves confirmation {user _id, provider _id, days}
+   - [ ] pushes object to Admin notification array
+   - [ ] Push To Heroku
+
+* TODO FrontEnd
+** TODO Main View [0%]
+   - [ ] Splash
+   - [ ] Login
+   - [ ] Sign up
+   - [ ] Our Mission
+   - [ ] Contact Us
+
+** TODO Admin View [0%]
+   - [ ] Read from Array listing out users in current city that are homeless
+   - [ ] List Responses to those users besdie that
+   - [ ] Push notification to picked provider that they will be hosting someone
+** TODO User View [0%]
+   - [ ] differs based on user type
+   - [ ] be able to edit user account
+*** TODO Provider[0%]
+    - [ ] Display alerts
+    - [ ] Send Response {_id, _id, days}
+
+*** TODO Seeker[0%]
+    - [ ]  Send Homeless Request
+
+* Functionality
+** Initial Functionality
+
+*** Overview
+    - Get hosts to sign up
+    - Vet host
+    - Decide on hosts
+    - Work on getting the app in the
+      hand of local LGBTQ youth through
+      schools and resource centers
+    - Seeker pushes the Im homeless button
+    - All providers in the city get a notification
+    - Then provider then chooses to Yes or No along
+      with days they can host.
+    - A notification of the address is sent
+      sent to the admin
+    - The admin then sends a ride share to pick them up
+    - The admin then vets the seeker
+    - If the admin aproves the seeker they then go over
+      possible hosts.
+    - After selecting a host the host will be notified
+    - Once notified arrangements will be made about how
+      to transport the person to the providers home.
+    - After the expired time with that seeker we will
+      either enroll with a new host, find a shelter
+      or transport them to a friend or family member
+    - If the admin denies the seeker they are then allowed
+      to stay in the safe house until a shelter opens up
+      and we will take them to said 
+*** Technical Functionality
+** Future functionality
+    - Carreer Coaching
+    - Long Term Housing with Hosts(6 - 12 months)
+    - Fincancial Counciling
+    - Enrolling them in job training
+      Coding Camps, Culinary School, etc
+    - Scholarships for said job training
+
+* Buisness Structure
+** Overall Structure
+
+*** Rules and Regulations
+
+**** Rule and Regulation Making Process
+Global Regulations and Rules for employes will be democratically by the central organization.
+Any rules and regulation can be challenged by a representative of a  city if that person
+has held a vote in their city and has atleast 1/2 of the vote. It will then be brought
+in front of the central comittee where it will then go to other cities and be held to a vote.
+This vote must have atleast a 2/3 majority in favor of the rule change.
+
+
+**** Global Rules v Local Rules v Hybrid
+
+***** Hybrid Rules
+
+****** What is a hybrid Rule?
+A hybrid rule is one that is set at the Global level with baseline
+regulations but the ultimate way to carry it out can be decided
+democratically at the local level.
+
+****** What is considered a hybrid rule?
+       - Pertains to who can be admitted to the houseing program
+         and who we put into a shelter.
+       - Pertains to the vetting process and regulations of being
+         a host.
+       - Pertaining to the Hiring Process at the local level
+
+
+***** Global Rules
+
+****** What is a Global Rule?
+A global rule is one that is set centrally and must be upheld
+thoroughly by all workers in the orginization. These Rules can
+be challenged by at a local level through a democratic process.
+
+****** Qualification of a Global rule
+      - Can pertain to a marjority of active cities
+      - Is protecting workers across the orginiztion
+      - Pertains to the way funds are distributed
+      - Central member hiring
+
+
+***** Local Rules
+
+****** What is a local rule?
+A local Rule is a rule that is set at the local level,
+that does not affect members of sibling branches. These
+rules must be set democratically, the exact percentage of
+votes needed to create/change one of these rules will be
+set by the local branch.
+
+****** Qualifications of a local rule?
+       - Can not subvert or take line against Global rules
+       - Can build off of Global rules
+       - Will only affect the one branch
+
+*** TODO add overview of Stucture
+*** Central Structure
+
+**** Central Committee Physical Structure
+     - 2 cofounders
+     - 1 member of each of the branches elected by the local branch
+
+
+**** Monthly Meeting
+***** Allocation of funds
+How funding will be spent centrally and how it will
+be distributed to the branches. This meeting can include
+challenges to rules involving allocation of funds but
+these rules can also be challanged during the rules
+and regulations part.
+***** Rules and Regulations
+Discussions of rules and regulations. Challenging or
+creation of rules and regulations will be done here
+unless otherwise stated in that sections overview.
+***** Roadmap for the overall program
+This will be about what needs to happen in
+the next month centrally and across the organization.
+This can include introduction of new ideas, creation
+of new branches, etc.
+
+
+*** Local Structure
+
+**** Local work place structure
+
+***** Short Term
+      - At least one person for every 8 hours in a day to
+       act as the admin.
+      - Possible Driver - depending on local rideshare situation
+
+
+***** Long Term
+      - Carreer Coach
+      - Financial Coach
+      - Social worker
+
+
+**** Mettings
+***** Frequency
+     - Meetings at the local level must occour atleast once a month
+       and can not reside at the same time as a central comitee meeting
+     - Local meeting frequency can be determined by the members in that city
+***** Topics
+      - How funds will be distrubited at the local level
+      - Who should be hired (admins and resources)
+      - Who to accept as a provider
+      - Rules and Regulation and rules and regulations to be
+        challenged at the central comittee
+
+* Funding
+**  Hiring
+*** Initial
+|-----------------+--------|
+| Position        | Salary |
+|-----------------+--------|
+| iOS Dev         |  90000 |
+|-----------------+--------|
+| Android Dev     |  90000 |
+|-----------------+--------|
+| Node Developer  |  90000 |
+|-----------------+--------|
+| UI/UX Designer  |  80000 |
+|-----------------+--------|
+| PR/Social Media |  50000 |
+|-----------------+--------|
+| NPO Stratagist  |  65000 |
+|-----------------+--------|
+| Yealy  Total    | 465000 |
+|-----------------+--------|
+#+TBLFM: @>$2=vsum(@2..@-1)
+
+*** Long Term
+
+
+** Other Expenses Yearly
+|---------------------+-------|
+| Resource            | Price |
+|---------------------+-------|
+| Office Space Philly |       |
+|---------------------+-------|
+| Office Space Austin |       |
+|---------------------+-------|
+| Server Space        |  1450 |
+|---------------------+-------|
+| Outreach            |       |
+|---------------------+-------|
+| Total               |       |
+|---------------------+-------|
+#+TBLFM: @>$2=vsum(@2..@-1)
+
+
+** Monthly Personal Expenses
+|---------------+-------+-------------|
+| Expenditure   | Price | Yearly Cost |
+|---------------+-------+-------------|
+| Car Payment   |   400 |        4800 |
+|---------------+-------+-------------|
+| Car insurance |   200 |        2400 |
+|---------------+-------+-------------|
+| Rent          |  2000 |       24000 |
+|---------------+-------+-------------|
+| Phone         |    65 |         780 |
+|---------------+-------+-------------|
+| Food          |   300 |        3600 |
+|---------------+-------+-------------|
+| Clothing      |   400 |        4800 |
+|---------------+-------+-------------|
+| Insurance     |   400 |        4800 |
+|---------------+-------+-------------|
+| Tech          |   200 |        2400 |
+|---------------+-------+-------------|
+| Entertainment |   150 |        1800 |
+|---------------+-------+-------------|
+| Misc          |  4115 |        3600 |
+|---------------+-------+-------------|
+| Total         |  4215 |       50580 |
+|---------------+-------+-------------|
+#+TBLFM: $3=12*$2::@11$2=vsum(@2..@-
