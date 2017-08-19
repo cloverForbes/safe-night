@@ -1,35 +1,78 @@
-body  {
-  font-size: 16px;
-  line-height: 1.5;
+.bonus{
+
+}
+.error {
+  color: black;
+}
+.about {
+  height: 50%;
+  overflow: auto;
 }
 
-/* header */
-#site-header .navbar  {
-  border-radius: 0;
-  border: none;
-  margin: 0;
+#mckinley {
+
 }
 
-/* main section */
-#site-main  {
-  padding-bottom: 50px;
-  padding-top: 50px;
+#submit {
+  color: black;
+  background-color: white;
 }
 
-/* footer */
-#site-footer  {
+#who {
+
+}
+
+.kee {
+  background-image: url("/img/kee.jpg");
+  background-position: center;
+  /*background-size: contain;*/
+}
+
+.mckinley{
+  height: 100%;
+  background-image: url("/img/mckinley.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.desc {
+  margin: auto;
   text-align: center;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  font-size: 12px;
-  background: #222;
-  color: #999;
 }
 
-.sign-up-form {
+.desc h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.row {
+ height: 100%;
+}
+
+.mobile-pic {
   display: none;
 }
 
-.provider {
-  display: none;
+@media (max-width: 575px) {
+  .bonus{
+    height: 100%;
+    overflow: scroll;
+  }
+  .mobile-pic {
+    display: inherit;
+  }
+
+  .non-mobile {
+    display: none;
+  }
+
+  .kee {
+    height: 100%;
+  }
+
+  .about {
+    margin-bottom: 5%;
+    overflow: auto;
+  }
 }

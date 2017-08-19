@@ -6,11 +6,7 @@
      port             = process.env.PORT || 8080,
      mongoose         = require('mongoose'),
      expressLayouts   = require('express-ejs-layouts'),
-     bodyParser       = require('body-parser'),
-     session          = require('express-session'),
-     cookieParser     = require('cookie-parser'),
-     flash            = require('connect-flash'),
-     expressValidator = require('express-validator');
+     bodyParser       = require('body-parser');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));

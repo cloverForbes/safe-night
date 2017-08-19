@@ -1,0 +1,34 @@
+<section class="download bg-primary text-center" id="signup">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 class="section-heading">Sign up for the beta as a host</h2>
+                <hr>
+                <%if(err.code == 11000) { %>
+                <p class="error">This email is already in use please try again</p>
+                <% } %>
+                <form action="/create#signup" class="form-inline offset-1 col-md-12" method="post">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input required="true" type="email" name="email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input required="true" type="text" name="first-name" id="first-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input required="true" type="text" name="last-name" id="last-name">
+                    </div>
+                    <button style="margin-left: 20px" class="btn btn-outline" id=submit>Submit</button>
+                </form>
+                <!--  <p>Our app is available on any mobile device! Download now to get started!</p>
+                  <div class="badges">
+                      <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
+                      <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
+                  </div>
+              </div> -->
+            </div>
+        </div>
+    </div>
+</section>

@@ -11,7 +11,7 @@ module.exports = {
   },
 
   createUser: (req, res) => {
-//    var newUser = new User(req.body);
+  var newUser = new User(req.body);
     newUser.save((err, user) => {
       if(err){res.send(err)}
       console.log(newUser.firstName + ' Created');
