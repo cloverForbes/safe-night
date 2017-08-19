@@ -42,7 +42,8 @@ router.post('/user/:id/homeless');
 //Handled by adminController
 router.route('/admin/:id')
       .get()
-      .post()
-
+      .post();
 
 router.get('/admin');
+
+router.get('*', mainController.fof);

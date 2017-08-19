@@ -44,5 +44,9 @@ module.exports = {
           res.render('pages/thank')
       });
 
+  },
+
+  fof: (req, res) => {
+    res.status(404).render('pages/404', {page: res.socket.parser.incoming.originalUrl});
   }
 };
