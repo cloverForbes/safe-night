@@ -28,7 +28,7 @@ router.route('/login')
       .get(mainController.showLogin)
       .post(mainController.verifyLogin);
 
-router.post('/create', mainController.createUser)
+router.post('/create', mainController.createUser);
 
 //Handled by profileController
 router.route('/user/:id')
@@ -39,6 +39,9 @@ router.route('/user/:id')
 router.post('/user/:id/approve');
 router.post('/user/:id/homeless');
 
+router.get('/user/city/:city', profileController.getUsersByCity);
+router.put('/user/update/:id', profileController.updateArr);
+router.put('/user/homeless/:id', profileController.isHomeless);
 //Handled by adminController
 router.route('/admin/:id')
       .get()
