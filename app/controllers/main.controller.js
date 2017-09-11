@@ -19,13 +19,13 @@ module.exports = {
   },
 
   showLogin: (req, res) => {
-    res.render('pages/login');
+    res.render('pages/login' , {page : res.socket.parser.incoming.originalUrl });
   },
 
   verifyLogin: (req, res) => {
     User.findOne({ 'email': req.body.email}, (err, user) => {
       if(err){res.send(err)}
-      if(user === null){res.send('User was not found')};
+      if(user === null){res.send('User was not found')}
       if(user.password === req.body.password){
         console.log(user.email + ' has logged in');
         res.redirect('/user/' + user._id);
@@ -41,7 +41,7 @@ module.exports = {
       newUser.save((err, user) => {
           if(err){res.render('pages/index', {err: err, page: res.socket.parser.incoming.originalUrl })}
           console.log(newUser.firstName + ' Created');
-          res.render('pages/thank')
+          res.render('pages/thank' , {user: user})
       });
 
   },

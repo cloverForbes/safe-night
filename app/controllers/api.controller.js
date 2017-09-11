@@ -3,7 +3,6 @@ const User = require('../models/user');
 module.exports = {
 
   getAllUsers: (req, res) => {
-    //validate(req.headers.api_key);
     User.find({}, (err, user) => {
       if(err) {res.send(err)}
       res.status(200).json(user);
@@ -11,7 +10,7 @@ module.exports = {
   },
 
   createUser: (req, res) => {
-  var newUser = new User(req.body);
+  let newUser = new User(req.body);
     newUser.save((err, user) => {
       if(err){res.send(err)}
       console.log(newUser.firstName + ' Created');
@@ -20,7 +19,6 @@ module.exports = {
   },
 
   readUser: (req, res) => {
-    //validate(req.headers.api_key);
     User.findOne({_id: req.params.id}, (err, user) => {
       if(err){res.send(err)}
       res.json(user)
@@ -28,7 +26,6 @@ module.exports = {
   },
 
   updateUser: (req, res) => {
-   // validate(req.headers.api_key);
     User.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, (err, user) => {
       if(err){res.send(err)}
       res.json(user);
@@ -36,19 +33,9 @@ module.exports = {
   },
 
   removeUser: (req, res) => {
-    //validate(req.headers.api_key);
     User.remove({_id: req.params.id}, (err, user) => {
       if(err){res.send(err)}
-      res.json("User was succesfully deleted");
+      res.json(`${user.firstName} ${user.lastName} was successfully deleted`);
     });
   }
-}
-
-/*function validate(key) {
-  if (key !== "key") {
-    res.status(415).send("Invalid API");
-  }
-  else {
-    console.log("Valid API key ");
-  }
-} */
+};

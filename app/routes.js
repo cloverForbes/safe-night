@@ -32,21 +32,18 @@ router.post('/create', mainController.createUser);
 
 //Handled by profileController
 router.route('/user/:id')
-      .get((req,res)=>{res.send(req.params.id)})
+      .get(profileController.getProfile)
       .put()
       .delete();
 
-router.post('/user/:id/approve');
-router.post('/user/:id/homeless');
+router.put('/user/approve/:id/:seeker/:days' , profileController.providerDecision);
 
 router.get('/user/city/:city', profileController.getUsersByCity);
-router.put('/user/update/:id', profileController.updateArr);
 router.put('/user/homeless/:id', profileController.isHomeless);
+
 //Handled by adminController
-router.route('/admin/:id')
-      .get()
-      .post();
+router.get('/admin', adminController.getAdmin);
+router.get('/admin/:city', adminController.getCityAdmin);
 
-router.get('/admin');
-
+//404 page
 router.get('*', mainController.fof);

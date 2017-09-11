@@ -1,0 +1,53 @@
+<section class="text-center">
+    <h2>Hi <%- user.firstName%></h2>
+    <%if(user.type === 'seeker' && !(user.isHomeless)){%>
+      <button class="btn-group-lg" id="homeless">Homeless</button>
+    <%}%>
+
+    <%if (user.type === 'provider'){%>
+    <% for(var a = 0; a < user.alerts.length; a++){%>
+    <div>
+        <p><%- user.alerts[a].firstName %> <%- user.alerts[a].lastName%></p>
+        <button id="approve" value="<%-user.alerts[a]._id%>">Approve</button>
+        <input type="number" id="days">
+        <button id="deny">Deny</button>
+    </div>
+    <%}%>
+    <%}%>
+
+</section>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#homeless").on('click', function () {
+            $.ajax({
+                url : `/user/homeless/<%-user.id%>`,
+                type : 'PUT',
+                success : function (result) {
+                    console.log(result);
+                }
+            }).then(function () {
+                location.reload();
+            })
+        })
+
+        $("#approve").on('click', function(e) {
+            $.ajax({
+                url : `/user/approve/<%-user.id%>/${$(e.target).val()}/${$("#days").val()}`,
+                type : 'PUT',
+                success : function (result) {
+                    console.log(result);
+
+                }
+            }).then()
+        });
+    });
+</script>
+
+<style>
+    input[type="number"] {
+        width:50px;
+    }
+</style>
+
