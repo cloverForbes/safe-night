@@ -11,6 +11,8 @@ module.exports = router;
 router.get('/api/users', apiController.getAllUsers);
 router.post('/api/user/create', apiController.createUser);
 
+router.post('/api/login', apiController.verifyLogin);
+
 router.route('/api/user/:id')
       .get(apiController.readUser)
       .put(apiController.updateUser)

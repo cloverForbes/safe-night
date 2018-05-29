@@ -23,18 +23,24 @@ module.exports = {
   },
 
   verifyLogin: (req, res) => {
-    console.log(req);
-    User.findOne({ 'email': req.body.email}, (err, user) => {
-      if(err){res.send(err)}
-      if(user === null){res.send('User was not found')}
-      if(user.password === req.body.password){
-        console.log(user.email + ' has logged in');
-        res.redirect('/user/' + user._id);
-      }
-      else {
-        res.send('Password was wrong')
-      }
-    });
+    if(!req.body.password)
+    {
+      res.send("ERROR");
+    }
+    else
+    {
+        User.findOne({ 'email': req.body.email}, (err, user) => {
+            if(err){res.send(err)}
+            if(user === null){res.send('User was not found')}
+            if(user.password === req.body.password){
+                console.log(user.email + ' has logged in');
+                res.redirect('/user/' + user._id);
+            }
+            else {
+                res.send('Password was wrong')
+            }
+        });
+    }
   },
 
   createUser: (req, res) => {

@@ -37,5 +37,28 @@ module.exports = {
       if(err){res.send(err)}
       res.json(`${user.firstName} ${user.lastName} was successfully deleted`);
     });
-  }
+  },
+
+    verifyLogin: (req, res) => {
+        if (!req.body.password) {
+            res.send("ERROR");
+        }
+        else {
+            User.findOne({'email': req.body.email}, (err, user) => {
+                if (err) {
+                    res.send(err)
+                }
+                if (user === null) {
+                    res.send('User was not found')
+                }
+                if (user.password === req.body.password) {
+                    console.log(user.email + ' has logged in');
+                    res.send(user);
+                }
+                else {
+                    res.send('Password was wrong')
+                }
+            });
+        }
+    },
 };
