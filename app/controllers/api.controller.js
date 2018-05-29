@@ -40,6 +40,8 @@ module.exports = {
   },
 
     verifyLogin: (req, res) => {
+        console.log(req);
+        console.log(req.body);
         if (!req.body.password) {
             res.send("ERROR");
         }
