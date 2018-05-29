@@ -23,6 +23,7 @@ module.exports = {
   },
 
   verifyLogin: (req, res) => {
+    console.log(req);
     User.findOne({ 'email': req.body.email}, (err, user) => {
       if(err){res.send(err)}
       if(user === null){res.send('User was not found')}
